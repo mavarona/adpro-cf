@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { Graphs1Component } from './graphs1/graphs1.component';
 import { PagesComponent } from './pages.component';
 import { ProgressComponent } from './progress/progress.component';
+import { PAGES_ROUTES } from './pages.routes';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ProgressComponent } from './progress/progress.component';
     ProgressComponent
   ],
   imports: [
-    SharedModule
+    SharedModule,
+    PAGES_ROUTES
   ],
   exports: [
     DashboardComponent,
