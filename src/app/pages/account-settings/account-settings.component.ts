@@ -13,10 +13,23 @@ export class AccountSettingsComponent implements OnInit {
   ngOnInit() {
   }
 
-  changeColor( theme: string ) {
+  changeColor( theme: string, link: any ) {
 
+    this.updateThemeChecked(link);
     const url: string = `assets/css/colors/${theme}.css`;
     this._document.getElementById('theme').setAttribute('href', url);
+
+  }
+
+  private updateThemeChecked ( link: any ) {
+
+    const selectors: any = document.getElementsByClassName('selector');
+
+    for (const ref of selectors) {
+      ref.classList.remove('working');
+    }
+
+    link.classList.add('working');
 
   }
 
