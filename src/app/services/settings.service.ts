@@ -45,7 +45,6 @@ export class SettingsService {
 
   }
 
-
 }
 
 interface Setting {
