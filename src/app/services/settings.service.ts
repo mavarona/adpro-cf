@@ -23,9 +23,13 @@ export class SettingsService {
 
   getSetting () {
 
-    this.setting = JSON.parse( localStorage.getItem('setting') );
+    let settingToApply = JSON.parse( localStorage.getItem('setting') );
 
-    this.applyTheme( this.setting.theme );
+    if ( settingToApply == null ) {
+      settingToApply = this.setting;
+    }
+
+    this.applyTheme( settingToApply.theme );
 
   }
 
