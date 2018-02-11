@@ -1,3 +1,73 @@
-<p>
-  graphs1 works!
-</p>
+<div class="row">
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+
+        <h4 class="card-title">{{ graphs.graph1.legend }}</h4>
+
+        <app-graph-dona
+          [chartLabels]="graphs.graph1.labels"
+          [chartData]="graphs.graph1.data"
+          [chartType]="graphs.graph1.type"
+        >
+        </app-graph-dona>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+
+          <h4 class="card-title">{{ graphs.graph2.legend }}</h4>
+
+          <app-graph-dona
+            [chartLabels]="graphs.graph2.labels"
+            [chartData]="graphs.graph2.data"
+            [chartType]="graphs.graph2.type"
+          >
+          </app-graph-dona>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+
+          <h4 class="card-title">{{ graphs.graph3.legend }}</h4>
+
+          <app-graph-dona
+            [chartLabels]="graphs.graph3.labels"
+            [chartData]="graphs.graph3.data"
+            [chartType]="graphs.graph3.type"
+          >
+          </app-graph-dona>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+
+          <h4 class="card-title">{{ graphs.graph4.legend }}</h4>
+
+          <app-graph-dona
+            [chartLabels]="graphs.graph4.labels"
+            [chartData]="graphs.graph4.data"
+            [chartType]="graphs.graph4.type"
+          >
+          </app-graph-dona>
+
+      </div>
+    </div>
+  </div>
+
+</div>
