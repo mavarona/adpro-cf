@@ -7,6 +7,7 @@ import { Graphs1Component } from './graphs1/graphs1.component';
 import { PagesComponent } from './pages.component';
 import { ProgressComponent } from './progress/progress.component';
 import { PromisesComponent } from './promises/promises.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 const pagesRoutes: Routes = [
   { path: '',
@@ -17,6 +18,7 @@ const pagesRoutes: Routes = [
       { path: 'graphs1', component: Graphs1Component},
       { path: 'progress', component: ProgressComponent},
       { path: 'promises', component: PromisesComponent},
+      { path: 'rxjs', component: RxjsComponent},
       { path: '', redirectTo: '/dashboard', pathMatch: 'full'}
     ]
   },

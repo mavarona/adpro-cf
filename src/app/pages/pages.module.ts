@@ -19,6 +19,7 @@ import { ProgressComponent } from './progress/progress.component';
 // Routes
 import { PAGES_ROUTES } from './pages.routes';
 import { PromisesComponent } from './promises/promises.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PromisesComponent } from './promises/promises.component';
     IncrementComponent,
     PagesComponent,
     ProgressComponent,
-    PromisesComponent
+    PromisesComponent,
+    RxjsComponent
   ],
   imports: [
     ChartsModule,
