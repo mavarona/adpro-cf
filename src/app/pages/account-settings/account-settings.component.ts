@@ -1,5 +1,5 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { SettingsService } from '../../services/settings.service';
 
 @Component({
   selector: 'app-account-settings',
@@ -8,7 +8,7 @@ import { DOCUMENT } from '@angular/common';
 })
 export class AccountSettingsComponent implements OnInit {
 
-  constructor( @Inject(DOCUMENT) private _document ) { }
+  constructor( private _settings: SettingsService ) { }
 
   ngOnInit() {
   }
@@ -16,8 +16,8 @@ export class AccountSettingsComponent implements OnInit {
   changeColor( theme: string, link: any ) {
 
     this.updateThemeChecked(link);
-    const url: string = `assets/css/colors/${theme}.css`;
-    this._document.getElementById('theme').setAttribute('href', url);
+
+    this._settings.applyTheme( theme );
 
   }
 
