@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PromisesComponent implements OnInit {
 
-  constructor() {
+  constructor() { }
 
-    const promise = new Promise( (resolve, reject) => {
+  ngOnInit() {
+
+    this.countTo(3)
+    .then(
+      message => console.log('Finish count', message)
+    )
+    .catch( error => console.error('Error in the promise', error));
+
+  }
+
+  countTo ( val: number ): Promise<boolean> {
+
+    return new Promise( (resolve, reject) => {
 
       let count = 0;
 
@@ -17,8 +29,8 @@ export class PromisesComponent implements OnInit {
 
         count += 1;
 
-        if ( count === 3 ) {
-          resolve('Ok');
+        if ( count === val ) {
+          resolve(true);
           clearInterval(interval);
         }
 
@@ -26,14 +38,6 @@ export class PromisesComponent implements OnInit {
 
     });
 
-    promise.then(
-      message => console.log('Finish count', message)
-    )
-    .catch( error => console.error('Error in the promise', error));
-
-  }
-
-  ngOnInit() {
   }
 
 }
