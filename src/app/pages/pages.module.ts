@@ -8,18 +8,20 @@ import { SharedModule } from '../shared/shared.module';
 import { ChartsModule } from 'ng2-charts';
 
 // Components
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { GraphDonaComponent } from '../components/graph-dona/graph-dona.component'
+import { GraphDonaComponent } from '../components/graph-dona/graph-dona.component';
 import { Graphs1Component } from './graphs1/graphs1.component';
+import { IncrementComponent } from '../components/increment/increment.component';
 import { PagesComponent } from './pages.component';
 import { ProgressComponent } from './progress/progress.component';
 
 // Routes
 import { PAGES_ROUTES } from './pages.routes';
-import { IncrementComponent } from '../components/increment/increment.component';
 
 @NgModule({
   declarations: [
+    AccountSettingsComponent,
     DashboardComponent,
     GraphDonaComponent,
     Graphs1Component,
