@@ -1,4 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 // Components
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
@@ -7,6 +9,10 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
+  imports: [
+    CommonModule,
+    RouterModule
+  ],
   declarations: [
     BreadcrumbsComponent,
     HeaderComponent,
