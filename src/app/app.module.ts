@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { PagesModule } from './pages/pages.module';
+import { ServiceModule } from './services/service.module';
 
 // Components
 import { AppComponent } from './app.component';
@@ -12,9 +13,6 @@ import { RegisterComponent } from './login/register.component';
 
 // Routes
 import { APP_ROUTES } from './app.routes';
-
-// Services
-import { SettingsService } from './services/settings.service';
 
 @NgModule({
   declarations: [
@@ -26,9 +24,10 @@ import { SettingsService } from './services/settings.service';
     BrowserModule,
     APP_ROUTES,
     PagesModule,
-    FormsModule
+    FormsModule,
+    ServiceModule
   ],
-  providers: [SettingsService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
