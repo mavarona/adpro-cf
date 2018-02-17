@@ -6,6 +6,7 @@ import swal from 'sweetalert';
 // Services
 import { UserService } from '../services/user/user.service';
 import { User } from '../models/user.model';
+import { Router } from '@angular/router';
 
 declare function init_plugins();
 
@@ -19,7 +20,8 @@ export class RegisterComponent implements OnInit {
   forma: FormGroup;
 
   constructor(
-    public _userService: UserService
+    public _userService: UserService,
+    public _router: Router
   ) { }
 
   ngOnInit() {
@@ -81,7 +83,7 @@ export class RegisterComponent implements OnInit {
 
     this._userService.createUser( user )
         .subscribe( resp => {
-          console.log(resp);
+          this._router.navigate(['/login']);
         });
 
   }
