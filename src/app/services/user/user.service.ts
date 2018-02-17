@@ -14,6 +14,12 @@ export class UserService {
 
   login ( user: User, rememberme: boolean = false ) {
 
+    if ( rememberme ) {
+      localStorage.setItem('email', user.email);
+    } else {
+      localStorage.removeItem('email');
+    }
+
     const url = URL_SERVICES + '/login';
     return this._http.post ( url, user )
                .map( (resp: any) => {
