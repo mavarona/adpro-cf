@@ -8,9 +8,35 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class UserService {
 
+  user: User;
+  token: string;
+
   constructor(
     public _http: HttpClient
   ) { }
+
+  saveStorage ( id: string, token: string, user: User ) {
+
+    localStorage.setItem('id', id);
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(user));
+
+    this.user = user;
+    this.token = token;
+
+  }
+
+  loginGoogle ( token: string ) {
+
+    const url = URL_SERVICES + '/login/google';
+
+    return this._http.post( url, { token } )
+               .map( (resp: any ) => {
+                 this.saveStorage(resp.id, resp.token, resp.User);
+                 return true;
+               });
+
+  }
 
   login ( user: User, rememberme: boolean = false ) {
 
