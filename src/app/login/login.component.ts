@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
   }
 
   login( forma: NgForm ) {
-    // this.router.navigate(['/dashboard']);
 
     if ( forma.invalid ) {
       return;
@@ -32,7 +31,7 @@ export class LoginComponent implements OnInit {
     const user = new User( null, forma.value.email, forma.value.password);
 
     this._userService.login( user, forma.value.rememberme )
-        .subscribe( resp => console.log(resp) );
+        .subscribe( ressuccess => this.router.navigate(['/dashboard']));
 
   }
 
