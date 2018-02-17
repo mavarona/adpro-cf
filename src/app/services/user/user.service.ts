@@ -12,6 +12,13 @@ export class UserService {
     public _http: HttpClient
   ) { }
 
+  login ( user: User, rememberme: boolean = false ) {
+
+    const url = URL_SERVICES + '/login';
+    return this._http.post ( url, user );
+
+  }
+
   createUser ( user: User ) {
 
     const url = URL_SERVICES + '/user';
