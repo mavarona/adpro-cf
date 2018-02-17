@@ -14,7 +14,7 @@ export class UserService {
 
     const url = URL_SERVICES + '/user';
 
-     return this._http.post( url, User );
+     return this._http.post( url, user );
 
   }
 
