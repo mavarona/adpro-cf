@@ -1,7 +1,7 @@
 
 // Modules
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { PagesModule } from './pages/pages.module';
 import { ServiceModule } from './services/service.module';
@@ -25,6 +25,7 @@ import { APP_ROUTES } from './app.routes';
     APP_ROUTES,
     PagesModule,
     FormsModule,
+    ReactiveFormsModule,
     ServiceModule
   ],
   providers: [],
