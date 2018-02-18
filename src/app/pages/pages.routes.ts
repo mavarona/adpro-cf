@@ -8,10 +8,12 @@ import { PagesComponent } from './pages.component';
 import { ProgressComponent } from './progress/progress.component';
 import { PromisesComponent } from './promises/promises.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { LoginGuardGuard } from '../services/service.index';
 
 const pagesRoutes: Routes = [
   { path: '',
     component: PagesComponent,
+    canActivate: [ LoginGuardGuard ],
     children: [
       { path: 'account-settings', component: AccountSettingsComponent, data: { title: 'settings themes' }},
       { path: 'dashboard', component: DashboardComponent, data: { title: 'Dashboard' }},

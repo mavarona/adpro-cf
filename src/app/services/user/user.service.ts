@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { URL_SERVICES } from '../../config/config';
 
 import 'rxjs/add/operator/map';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class UserService {
@@ -12,8 +13,29 @@ export class UserService {
   token: string;
 
   constructor(
-    public _http: HttpClient
-  ) { }
+    public _http: HttpClient,
+    public _router: Router
+  ) {
+  }
+
+  isLogged () {
+
+    this.chargeStorage();
+    return (this.token.length > 5) ? true : false;
+
+  }
+
+  chargeStorage () {
+
+    if ( localStorage.getItem('token') ) {
+      this.token = localStorage.getItem('token');
+      this.user = JSON.parse(localStorage.getItem('user'));
+    } else {
+      this.token = '';
+      this.user = null;
+    }
+
+  }
 
   saveStorage ( id: string, token: string, user: User ) {
 
@@ -23,6 +45,18 @@ export class UserService {
 
     this.user = user;
     this.token = token;
+
+  }
+
+  logout () {
+
+    this.user = null;
+    this.token = '';
+
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+
+    this._router.navigate(['/login']);
 
   }
 
