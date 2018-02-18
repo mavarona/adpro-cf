@@ -66,7 +66,7 @@ export class UserService {
 
     return this._http.post( url, { token } )
                .map( (resp: any ) => {
-                 this.saveStorage(resp.id, resp.token, resp.User);
+                 this.saveStorage(resp.id, resp.token, resp.user);
                  return true;
                });
 

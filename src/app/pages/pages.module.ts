@@ -2,6 +2,7 @@
 // Module
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { PipesModule } from '../pipes/pipes.module';
 import { SharedModule } from '../shared/shared.module';
 
 // Ng2-charts
@@ -37,6 +38,7 @@ import { RxjsComponent } from './rxjs/rxjs.component';
     ChartsModule,
     FormsModule,
     PAGES_ROUTES,
+    PipesModule,
     SharedModule
   ],
   exports: [

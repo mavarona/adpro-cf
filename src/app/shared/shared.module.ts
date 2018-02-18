@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { PipesModule } from '../pipes/pipes.module';
 import { RouterModule } from '@angular/router';
 
 // Components
@@ -11,6 +12,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 @NgModule({
   imports: [
     CommonModule,
+    PipesModule,
     RouterModule
   ],
   declarations: [
