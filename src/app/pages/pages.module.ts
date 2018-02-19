@@ -15,12 +15,13 @@ import { GraphDonaComponent } from '../components/graph-dona/graph-dona.componen
 import { Graphs1Component } from './graphs1/graphs1.component';
 import { IncrementComponent } from '../components/increment/increment.component';
 import { PagesComponent } from './pages.component';
+import { ProfileComponent } from './profile/profile.component';
 import { ProgressComponent } from './progress/progress.component';
+import { PromisesComponent } from './promises/promises.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 // Routes
 import { PAGES_ROUTES } from './pages.routes';
-import { PromisesComponent } from './promises/promises.component';
-import { RxjsComponent } from './rxjs/rxjs.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { RxjsComponent } from './rxjs/rxjs.component';
     Graphs1Component,
     IncrementComponent,
     PagesComponent,
+    ProfileComponent,
     ProgressComponent,
     PromisesComponent,
     RxjsComponent
