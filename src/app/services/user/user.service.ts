@@ -106,4 +106,21 @@ export class UserService {
 
   }
 
+  updateUser ( user: User ) {
+
+    let url = URL_SERVICES + '/user/' + user._id;
+    url += '?token=' + this.token;
+
+    return this._http.put( url, user )
+               .map( (resp: any) => {
+
+                const userDB: User = resp.user;
+                this.saveStorage ( userDB._id, this.token, userDB );
+                swal('User Update: ', user.name, 'success');
+
+                return true;
+
+               });
+  }
+
 }
