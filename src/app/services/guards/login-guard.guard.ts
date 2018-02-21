@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { UserService } from '../user/user.service';
 import { ReturnStatement } from '@angular/compiler';
+import { UserService } from '../service.index';
 
 @Injectable()
 export class LoginGuardGuard implements CanActivate {
