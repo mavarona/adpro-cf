@@ -13,6 +13,8 @@ export class ProfileComponent implements OnInit {
 
   imageUpload: File;
 
+  imgTemp: string;
+
   constructor( public _userService: UserService ) {
 
     this.user = this._userService.user;
@@ -42,7 +44,21 @@ export class ProfileComponent implements OnInit {
       return;
     }
 
+    if ( file.type.indexOf('image') < 0 ) {
+
+      swal('Only images', 'The file selected is not a image', 'error');
+      this.imageUpload = null;
+      return;
+
+    }
+
     this.imageUpload = file;
+
+    // Pre loader of image
+    const reader = new FileReader();
+    const urlImageTemp = reader.readAsDataURL( file );
+
+    reader.onloadend = () => this.imgTemp = reader.result;
 
   }
 
