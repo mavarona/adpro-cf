@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Injectable()
 export class SidebarService {
@@ -13,6 +14,15 @@ export class SidebarService {
         {title: 'ProgressBar', url: '/progress'},
         {title: 'Promises', url: '/promises'},
         {title: 'Rxjs', url: '/rxjs'},
+      ]
+    },
+    {
+      title: 'maintenance',
+      icon: 'mdi mdi-folder-lock-open',
+      submenu: [
+        { title: 'Users', url: '/users' },
+        { title: 'Hospitals', url: '/hospitals' },
+        { title: 'Doctors', url: '/doctors' }
       ]
     }
   ];
