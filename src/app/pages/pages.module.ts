@@ -20,6 +20,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProgressComponent } from './progress/progress.component';
 import { PromisesComponent } from './promises/promises.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { UsersComponent } from './users/users.component';
 
 // Routes
 import { PAGES_ROUTES } from './pages.routes';
@@ -35,7 +36,8 @@ import { PAGES_ROUTES } from './pages.routes';
     ProfileComponent,
     ProgressComponent,
     PromisesComponent,
-    RxjsComponent
+    RxjsComponent,
+    UsersComponent
   ],
   imports: [
     ChartsModule,

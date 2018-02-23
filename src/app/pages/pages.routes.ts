@@ -12,6 +12,7 @@ import { ProfileComponent } from './profile/profile.component';
 
 // Services
 import { LoginGuardGuard } from '../services/guards/login-guard.guard';
+import { UsersComponent } from './users/users.component';
 
 const pagesRoutes: Routes = [
   { path: '',
@@ -25,6 +26,8 @@ const pagesRoutes: Routes = [
       { path: 'progress', component: ProgressComponent, data: { title: 'Progress' }},
       { path: 'promises', component: PromisesComponent, data: { title: 'Promises' }},
       { path: 'rxjs', component: RxjsComponent, data: { title: 'Rxjs' }},
+      // AdMIN
+      { path: 'users', component: UsersComponent, data: { title: 'Admin users' }},
       { path: '', redirectTo: '/dashboard', pathMatch: 'full'}
     ]
   },

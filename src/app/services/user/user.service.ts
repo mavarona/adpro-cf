@@ -141,4 +141,20 @@ export class UserService {
 
   }
 
+  chargeUsers ( from: number, ) {
+
+    const url = URL_SERVICES + '/user?from=' + from;
+
+    return this._http.get( url );
+
+  }
+
+  searchUsers ( term: string ) {
+
+    const url = URL_SERVICES + '/search/collection/users/' + term;
+    return this._http.get( url )
+               .map( (resp: any) => resp.users );
+
+  }
+
 }
