@@ -4,6 +4,9 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/service.index';
 import { URL_SERVICES } from '../../config/config';
+import { Subscription } from 'rxjs/rx';
+
+declare var swal: any;
 
 @Component({
   selector: 'app-users',
@@ -75,6 +78,33 @@ export class UsersComponent implements OnInit {
         .subscribe( (users: User[]) => {
           this.users = users;
         });
+
+  }
+
+  deleteUser ( user: User ) {
+
+    if ( user._id === this._userService.user._id ) {
+      swal('Can not delete the user', 'You can not delete yourself', 'error');
+      return;
+    }
+
+    swal({
+      title: 'Are you sure?',
+      text: 'User to delete: ' + user.name,
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((toDelete) => {
+
+      if (toDelete) {
+        this._userService.deleteUser( user._id )
+            .subscribe( resp => {
+              this.loadUsers();
+            });
+      }
+
+    });
 
   }
 

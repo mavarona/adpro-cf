@@ -157,4 +157,19 @@ export class UserService {
 
   }
 
+  deleteUser ( id: string ) {
+
+    let url = URL_SERVICES + '/user/' + id;
+
+    url += '?token=' + this.token;
+
+    return this._http.delete( url )
+               .map( resp => {
+                swal('User Deleted', 'The user has been deleted', 'success');
+                return true;
+               });
+
+
+  }
+
 }
