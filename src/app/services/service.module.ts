@@ -13,12 +13,15 @@ import {
   UserService
  } from './service.index';
 
+import { ModalUploadService } from '../components/modal-upload/modal-upload.service';
+
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule
   ],
   providers: [
+    ModalUploadService,
     SettingsService,
     SharedService,
     SidebarService,

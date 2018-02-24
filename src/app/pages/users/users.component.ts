@@ -1,10 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 
+// Config
+import { URL_SERVICES } from '../../config/config';
+
 // Models
 import { User } from '../../models/user.model';
-import { UserService } from '../../services/service.index';
-import { URL_SERVICES } from '../../config/config';
+
+// Rxjs
 import { Subscription } from 'rxjs/rx';
+
+// Services
+import { UserService } from '../../services/service.index';
+import { UploadFileService } from '../../services/uploadfile/upload-file.service';
+import { ModalUploadService } from '../../components/modal-upload/modal-upload.service';
 
 declare var swal: any;
 
@@ -23,11 +31,15 @@ export class UsersComponent implements OnInit {
 
   loading: boolean = true;
 
-  constructor( public _userService: UserService ) { }
+  constructor( public _userService: UserService,
+               public _modalUploadService: ModalUploadService ) { }
 
   ngOnInit() {
 
     this.loadUsers();
+
+    this._modalUploadService.notofications
+        .subscribe( resp => this.loadUsers() );
 
   }
 
@@ -112,6 +124,12 @@ export class UsersComponent implements OnInit {
 
     this._userService.updateUser( user )
        .subscribe( resp => console.log(resp) );
+
+  }
+
+  showModal ( id: string ) {
+
+    this._modalUploadService.showModal('users', id);
 
   }
 
