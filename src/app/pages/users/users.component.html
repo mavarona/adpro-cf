@@ -52,13 +52,18 @@
               </td>
               <td>{{ user.email }}</td>
               <td>{{ user.name }}</td>
-              <td>{{ user.role }}</td>
+              <td>
+                <select [(ngModel)]='user.role' name='role' class='form-control'>
+                  <option value="ADMIN_ROLE">Admin</option>
+                  <option value="USER_ROLE">User</option>
+                </select>
+              </td>
               <td>
                 <label *ngIf='user.google' class="label label-danger">Google</label>
                 <label *ngIf='!user.google' class="label label-primary">Basic</label>
               </td>
               <td>
-                <button class="btn btn-primary">
+                <button (click)='saveUser( user )' class="btn btn-primary">
                   <i class="fa fa-save"></i>
                 </button>
                 <button (click)="deleteUser( user )" class="btn btn-danger">

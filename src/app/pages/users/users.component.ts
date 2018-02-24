@@ -108,4 +108,11 @@ export class UsersComponent implements OnInit {
 
   }
 
+  saveUser ( user: User ) {
+
+    this._userService.updateUser( user )
+       .subscribe( resp => console.log(resp) );
+
+  }
+
 }

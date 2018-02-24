@@ -116,8 +116,10 @@ export class UserService {
     return this._http.put( url, user )
                .map( (resp: any) => {
 
-                const userDB: User = resp.user;
-                this.saveStorage ( userDB._id, this.token, userDB );
+                if ( user._id === this.user._id ) {
+                  const userDB: User = resp.user;
+                  this.saveStorage ( userDB._id, this.token, userDB );
+                }
                 swal('User Update: ', user.name, 'success');
 
                 return true;
