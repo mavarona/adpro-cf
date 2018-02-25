@@ -37,7 +37,7 @@
         <tbody>
           <tr *ngFor='let hospital of hospitals'>
               <td class="w70">
-                <img [src]="hospital.img | image" class="img50 img-circle pointer">
+                <img (click)='updateImage(hospital)' [src]="hospital.img | image:'hospital'" class="img50 pointer">
               </td>
               <td>
                 <input [(ngModel)]="hospital.name" name="name" type="text" class="form-control" placeholder="Name of hospital">
@@ -55,14 +55,6 @@
 
 
        </table>
-
-       <button class="btn btn-secondary">
-          Previous
-       </button>
-
-       <button class="btn btn-secondary">
-          Next
-       </button>
 
       </div>
     </div>

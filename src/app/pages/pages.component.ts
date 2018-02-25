@@ -10,7 +10,6 @@ declare function init_plugins();
 export class PagesComponent implements OnInit {
 
   constructor() {
-    console.log('upload model');
   }
 
   ngOnInit() {

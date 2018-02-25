@@ -39,7 +39,7 @@ export class HospitalService {
 
   }
 
-  deleteHopspital ( id: string ) {
+  deleteHospital ( id: string ) {
 
     let url = URL_SERVICES + '/hospital/' + id;
 
@@ -76,6 +76,8 @@ export class HospitalService {
 
     return this._http.put( url, hospital )
                .map( (resp: any) => {
+
+                swal('Hospital Updated', hospital.name, 'success');
 
                 return resp.hospital;
 
