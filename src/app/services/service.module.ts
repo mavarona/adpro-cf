@@ -6,6 +6,7 @@ import { LoginGuardGuard } from './guards/login-guard.guard';
 
 // Services
 import {
+  HospitalService,
   SettingsService,
   SharedService,
   SidebarService,
@@ -22,6 +23,7 @@ import { ModalUploadService } from '../components/modal-upload/modal-upload.serv
   ],
   providers: [
     ModalUploadService,
+    HospitalService,
     SettingsService,
     SharedService,
     SidebarService,

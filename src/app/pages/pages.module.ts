@@ -25,6 +25,7 @@ import { UsersComponent } from './users/users.component';
 
 // Routes
 import { PAGES_ROUTES } from './pages.routes';
+import { HospitalsComponent } from './hospitals/hospitals.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { PAGES_ROUTES } from './pages.routes';
     ProgressComponent,
     PromisesComponent,
     RxjsComponent,
-    UsersComponent
+    UsersComponent,
+    HospitalsComponent
   ],
   imports: [
     ChartsModule,
