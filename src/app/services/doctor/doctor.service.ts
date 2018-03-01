@@ -21,4 +21,12 @@ export class DoctorService {
 
   }
 
+  searchDoctors ( term: string ) {
+
+    const url = URL_SERVICES + '/search/collection/doctors/' + term;
+    return this._http.get( url )
+               .map( (resp: any) => resp.doctors );
+
+  }
+
 }

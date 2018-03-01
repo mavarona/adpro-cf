@@ -30,7 +30,17 @@ export class DoctorsComponent implements OnInit {
 
   }
 
-  searchDoctors ( term: string) {}
+  searchDoctors ( term: string) {
+
+    if ( term.length <= 0 ) {
+      this.loadDoctors();
+      return;
+    }
+
+    this._doctorService.searchDoctors( term )
+        .subscribe( doctors => this.doctors = doctors );
+
+  }
 
   createDoctor () {}
 
