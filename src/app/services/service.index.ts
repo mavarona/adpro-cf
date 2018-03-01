@@ -1,4 +1,4 @@
-
+export { DoctorService } from './doctor/doctor.service';
 export { HospitalService } from './hospital/hospital.service';
 export { SettingsService } from './settings/settings.service';
 export { SharedService } from './shared/shared.service';

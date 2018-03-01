@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 // Components
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DoctorComponent } from './doctors/doctor.component';
+import { DoctorsComponent } from './doctors/doctors.component';
 import { Graphs1Component } from './graphs1/graphs1.component';
 import { HospitalsComponent } from './hospitals/hospitals.component';
 import { PagesComponent } from './pages.component';
@@ -27,7 +29,9 @@ const pagesRoutes: Routes = [
       { path: 'progress', component: ProgressComponent, data: { title: 'Progress' }},
       { path: 'promises', component: PromisesComponent, data: { title: 'Promises' }},
       { path: 'rxjs', component: RxjsComponent, data: { title: 'Rxjs' }},
-      // AdMIN
+      // Admin
+      { path: 'doctors', component: DoctorsComponent, data: { title: 'Admin doctors' }},
+      { path: 'doctor/:id', component: DoctorComponent, data: { title: 'Update doctors' }},
       { path: 'hospitals', component: HospitalsComponent, data: { title: 'Admin hospitals' }},
       { path: 'users', component: UsersComponent, data: { title: 'Admin users' }},
       { path: '', redirectTo: '/dashboard', pathMatch: 'full'}
