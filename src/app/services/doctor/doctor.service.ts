@@ -4,6 +4,7 @@ import { URL_SERVICES } from '../../config/config';
 
 // Services
 import { UserService } from '../user/user.service';
+import { Doctor } from '../../models/doctor.model';
 
 @Injectable()
 export class DoctorService {
@@ -11,7 +12,7 @@ export class DoctorService {
   totalDoctors: number = 0;
 
   constructor( public _http: HttpClient,
-               public _doctorService: UserService) { }
+               public _userService: UserService) { }
 
   loadDoctors () {
 
@@ -41,6 +42,21 @@ export class DoctorService {
 
     return this._http.delete( url )
                .map( resp => swal('Doctor Deleted', 'The doctor was deleted', 'success') );
+
+  }
+
+  saveDoctor ( doctor: Doctor ) {
+
+    let url = URL_SERVICES + '/doctor';
+
+    url += '?token=' + this._userService.token;
+
+    return this._http.post ( url, doctor)
+        .map( ( resp: any) => {
+
+          swal('Doctor created', doctor.name, 'success');
+          return resp.doctor;
+        });
 
   }
 
