@@ -38,7 +38,7 @@ export class DoctorService {
 
     let url = URL_SERVICES + '/doctor/' + id;
 
-    url += '?token=' + this._doctorService.token;
+    url += '?token=' + this._userService.token;
 
     return this._http.delete( url )
                .map( resp => swal('Doctor Deleted', 'The doctor was deleted', 'success') );
