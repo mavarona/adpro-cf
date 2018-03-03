@@ -24,6 +24,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProgressComponent } from './progress/progress.component';
 import { PromisesComponent } from './promises/promises.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { SearchComponent } from './search/search.component';
 import { UsersComponent } from './users/users.component';
 
 // Routes
@@ -45,6 +46,7 @@ import { PAGES_ROUTES } from './pages.routes';
     ProgressComponent,
     PromisesComponent,
     RxjsComponent,
+    SearchComponent,
     UsersComponent
   ],
   imports: [

@@ -12,6 +12,7 @@ import { ProgressComponent } from './progress/progress.component';
 import { PromisesComponent } from './promises/promises.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SearchComponent } from './search/search.component';
 import { UsersComponent } from './users/users.component';
 
 // Services
@@ -29,6 +30,7 @@ const pagesRoutes: Routes = [
       { path: 'progress', component: ProgressComponent, data: { title: 'Progress' }},
       { path: 'promises', component: PromisesComponent, data: { title: 'Promises' }},
       { path: 'rxjs', component: RxjsComponent, data: { title: 'Rxjs' }},
+      { path: 'search/:term', component: SearchComponent, data: { title: 'Search' }},
       // Admin
       { path: 'doctors', component: DoctorsComponent, data: { title: 'Admin doctors' }},
       { path: 'doctor/:id', component: DoctorComponent, data: { title: 'Update doctors' }},
