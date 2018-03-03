@@ -49,7 +49,7 @@ export class ModalUploadComponent implements OnInit {
 
     this._uploadFileService.uploadFile( this.imageUpload, this._modalUploadService.type, this._modalUploadService.id )
         .then( resp => {
-          this._modalUploadService.notofications.emit( resp );
+          this._modalUploadService.notifications.emit( resp );
           this.closeModal();
         })
         .catch( err => {
