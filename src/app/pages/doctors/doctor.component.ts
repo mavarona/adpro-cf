@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
 // Models
@@ -24,7 +24,20 @@ export class DoctorComponent implements OnInit {
 
   constructor( public _doctorService: DoctorService,
                public _hospitalService: HospitalService,
-               public _router: Router) { }
+               public _router: Router,
+               public activatedRoute: ActivatedRoute) {
+
+                  activatedRoute.params.subscribe( params => {
+
+                    const id = params['id'];
+
+                    if ( id !== 'new' ) {
+                      this.loadDoctor(id);
+                    }
+
+                  });
+
+                }
 
   ngOnInit() {
 
@@ -51,6 +64,17 @@ export class DoctorComponent implements OnInit {
 
     this._hospitalService.getHospital(id)
         .subscribe( (hospital: Hospital) => this.hospital = hospital );
+
+  }
+
+  loadDoctor ( id: string) {
+
+    this._doctorService.loadDoctor( id )
+        .subscribe( doctor => {
+          this.doctor = doctor;
+          this.doctor.hospital = doctor.hospital._id;
+          this.changeHospital( this.doctor.hospital );
+        });
 
   }
 

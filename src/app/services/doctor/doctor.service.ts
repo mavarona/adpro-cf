@@ -26,6 +26,15 @@ export class DoctorService {
 
   }
 
+  loadDoctor ( id: string ) {
+
+    const url = URL_SERVICES + '/doctor/' + id;
+
+    return this._http.get( url )
+               .map( (resp: any) => resp.doctor );
+
+  }
+
   searchDoctors ( term: string ) {
 
     const url = URL_SERVICES + '/search/collection/doctors/' + term;
