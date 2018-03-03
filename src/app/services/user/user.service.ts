@@ -12,6 +12,7 @@ export class UserService {
 
   user: User;
   token: string;
+  menu: any = [];
 
   constructor(
     public _http: HttpClient,
@@ -32,21 +33,25 @@ export class UserService {
     if ( localStorage.getItem('token') ) {
       this.token = localStorage.getItem('token');
       this.user = JSON.parse(localStorage.getItem('user'));
+      this.menu = JSON.parse(localStorage.getItem('menu'));
     } else {
       this.token = '';
       this.user = null;
+      this.menu = [];
     }
 
   }
 
-  saveStorage ( id: string, token: string, user: User ) {
+  saveStorage ( id: string, token: string, user: User, menu: any ) {
 
     localStorage.setItem('id', id);
     localStorage.setItem('token', token);
     localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('menu', JSON.stringify(menu));
 
     this.user = user;
     this.token = token;
+    this.menu = menu;
 
   }
 
@@ -57,6 +62,7 @@ export class UserService {
 
     localStorage.removeItem('user');
     localStorage.removeItem('token');
+    localStorage.removeItem('menu');
 
     this._router.navigate(['/login']);
 
@@ -68,7 +74,7 @@ export class UserService {
 
     return this._http.post( url, { token } )
                .map( (resp: any ) => {
-                 this.saveStorage(resp.id, resp.token, resp.user);
+                 this.saveStorage(resp.id, resp.token, resp.user, resp.menu);
                  return true;
                });
 
@@ -86,10 +92,7 @@ export class UserService {
     return this._http.post ( url, user )
                .map( (resp: any) => {
 
-                localStorage.setItem('id', resp.id);
-                localStorage.setItem('token', resp.token);
-                localStorage.setItem('user', JSON.stringify(resp.user));
-
+                this.saveStorage(resp.id, resp.token, resp.user, resp.menu);
                 return true;
 
                });
@@ -118,7 +121,7 @@ export class UserService {
 
                 if ( user._id === this.user._id ) {
                   const userDB: User = resp.user;
-                  this.saveStorage ( userDB._id, this.token, userDB );
+                  this.saveStorage ( userDB._id, this.token, userDB, this.menu );
                 }
                 swal('User Update: ', user.name, 'success');
 
@@ -132,7 +135,7 @@ export class UserService {
     this._uploadFileService.uploadFile( file, 'users', id)
         .then ( (resp: any ) => {
           this.user.img = resp.user.img;
-          this.saveStorage( id, this.token, this.user );
+          this.saveStorage( id, this.token, this.user, this.menu );
           swal('Upload image', this.user.name, 'success');
 
           return true;
