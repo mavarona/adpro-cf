@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
 // Models
+import { Doctor } from '../../models/doctor.model';
 import { Hospital } from '../../models/hospital.model';
 
 // Services
 import { DoctorService } from '../../services/doctor/doctor.service';
 import { HospitalService } from '../../services/hospital/hospital.service';
-import { Doctor } from '../../models/doctor.model';
+
 
 @Component({
   selector: 'app-doctor',
@@ -17,10 +19,12 @@ import { Doctor } from '../../models/doctor.model';
 export class DoctorComponent implements OnInit {
 
   hospitals: Hospital[] = [];
-  doctor: Doctor = new Doctor();
+  doctor: Doctor = new Doctor('', '', '', '', '');
+  hospital: Hospital = new Hospital('');
 
   constructor( public _doctorService: DoctorService,
-               public _hospitalService: HospitalService ) { }
+               public _hospitalService: HospitalService,
+               public _router: Router) { }
 
   ngOnInit() {
 
@@ -36,7 +40,17 @@ export class DoctorComponent implements OnInit {
     }
 
     this._doctorService.saveDoctor( this.doctor )
-        .subscribe( );
+        .subscribe( doctor => {
+          this.doctor._id = doctor._id;
+          this._router.navigate(['/doctor', doctor._id]);
+        });
+
+  }
+
+  changeHospital ( id: string ) {
+
+    this._hospitalService.getHospital(id)
+        .subscribe( (hospital: Hospital) => this.hospital = hospital );
 
   }
 
