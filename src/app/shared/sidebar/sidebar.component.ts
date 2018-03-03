@@ -10,7 +10,7 @@ import { User } from '../../models/user.model';
 })
 export class SidebarComponent implements OnInit {
 
-  user : User;
+  user: User;
 
   constructor( public _sidebar: SidebarService,
                public _userService: UserService ) { }
@@ -18,6 +18,7 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
 
     this.user = this._userService.user;
+    this._sidebar.chargeMenu();
 
   }
 

@@ -9,7 +9,9 @@ export class SidebarService {
 
   menu: any = [];
 
-  constructor( public _userService: UserService ) {
+  constructor( public _userService: UserService ) {}
+
+  chargeMenu () {
 
     this.menu = this._userService.menu;
 
