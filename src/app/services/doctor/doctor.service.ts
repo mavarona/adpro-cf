@@ -58,14 +58,28 @@ export class DoctorService {
 
     let url = URL_SERVICES + '/doctor';
 
-    url += '?token=' + this._userService.token;
+    if ( doctor._id ) {
 
-    return this._http.post ( url, doctor)
-        .map( ( resp: any) => {
+      url += '/' + doctor._id;
+      url += '?token=' + this._userService.token;
 
-          swal('Doctor created', doctor.name, 'success');
-          return resp.doctor;
-        });
+      return this._http.put( url, doctor )
+                 .map( (resp: any) => {
+                    swal('Doctor updated', doctor.name, 'success');
+                    return resp.doctor;
+                 });
+    } else {
+
+      url += '?token=' + this._userService.token;
+
+      return this._http.post ( url, doctor)
+          .map( ( resp: any) => {
+
+            swal('Doctor created', doctor.name, 'success');
+            return resp.doctor;
+          });
+
+    }
 
   }
 
