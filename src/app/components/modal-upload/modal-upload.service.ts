@@ -9,7 +9,7 @@ export class ModalUploadService {
 
   public hidden: string = 'hidden';
 
-  public notofications = new EventEmitter<any>();
+  public notifications = new EventEmitter<any>();
 
   constructor() { }
 
