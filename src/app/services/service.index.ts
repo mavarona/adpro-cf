@@ -1,3 +1,9 @@
+
+// Guards
+export { AdminGuard } from './guards/admin.guard';
+export { LoginGuardGuard } from './guards/login-guard.guard';
+
+// Services
 export { DoctorService } from './doctor/doctor.service';
 export { HospitalService } from './hospital/hospital.service';
 export { SettingsService } from './settings/settings.service';

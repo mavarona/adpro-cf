@@ -2,12 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from 'selenium-webdriver/http';
-import { LoginGuardGuard } from './guards/login-guard.guard';
 
 // Services
 import {
+  AdminGuard,
   DoctorService,
   HospitalService,
+  LoginGuardGuard,
   SettingsService,
   SharedService,
   SidebarService,
@@ -23,7 +24,9 @@ import { ModalUploadService } from '../components/modal-upload/modal-upload.serv
     HttpClientModule
   ],
   providers: [
+    AdminGuard,
     DoctorService,
+    LoginGuardGuard,
     ModalUploadService,
     HospitalService,
     SettingsService,
@@ -31,7 +34,6 @@ import { ModalUploadService } from '../components/modal-upload/modal-upload.serv
     SidebarService,
     UploadFileService,
     UserService,
-    LoginGuardGuard
   ],
   declarations: []
 })

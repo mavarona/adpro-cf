@@ -17,6 +17,7 @@ import { UsersComponent } from './users/users.component';
 
 // Services
 import { LoginGuardGuard } from '../services/guards/login-guard.guard';
+import { AdminGuard } from '../services/guards/admin.guard';
 
 const pagesRoutes: Routes = [
   { path: '',
@@ -35,7 +36,11 @@ const pagesRoutes: Routes = [
       { path: 'doctors', component: DoctorsComponent, data: { title: 'Admin doctors' }},
       { path: 'doctor/:id', component: DoctorComponent, data: { title: 'Update doctors' }},
       { path: 'hospitals', component: HospitalsComponent, data: { title: 'Admin hospitals' }},
-      { path: 'users', component: UsersComponent, data: { title: 'Admin users' }},
+      { path: 'users',
+        component: UsersComponent,
+        canActivate: [ AdminGuard ],
+        data: { title: 'Admin users' }
+      },
       { path: '', redirectTo: '/dashboard', pathMatch: 'full'}
     ]
   },
