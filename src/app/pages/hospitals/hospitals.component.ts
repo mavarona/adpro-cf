@@ -27,7 +27,7 @@ export class HospitalsComponent implements OnInit {
 
     this.loadHospitals();
 
-    this._modalUpdateService.notofications
+    this._modalUpdateService.notifications
         .subscribe( () => this.loadHospitals() );
   }
 

@@ -9,6 +9,7 @@ import { Hospital } from '../../models/hospital.model';
 // Services
 import { DoctorService } from '../../services/doctor/doctor.service';
 import { HospitalService } from '../../services/hospital/hospital.service';
+import { ModalUploadService } from '../../components/modal-upload/modal-upload.service';
 
 
 @Component({
@@ -25,7 +26,8 @@ export class DoctorComponent implements OnInit {
   constructor( public _doctorService: DoctorService,
                public _hospitalService: HospitalService,
                public _router: Router,
-               public activatedRoute: ActivatedRoute) {
+               public activatedRoute: ActivatedRoute,
+               public _modalUploadService: ModalUploadService) {
 
                   activatedRoute.params.subscribe( params => {
 
@@ -43,6 +45,11 @@ export class DoctorComponent implements OnInit {
 
     this._hospitalService.loadHospitals()
         .subscribe( hospitals => this.hospitals = hospitals );
+
+    this._modalUploadService.notifications
+        .subscribe( resp => {
+          this.doctor.img = resp.doctor.img;
+        });
 
   }
 
@@ -75,6 +82,12 @@ export class DoctorComponent implements OnInit {
           this.doctor.hospital = doctor.hospital._id;
           this.changeHospital( this.doctor.hospital );
         });
+
+  }
+
+  changePhoto () {
+
+    this._modalUploadService.showModal('doctors', this.doctor._id);
 
   }
 

@@ -38,7 +38,7 @@ export class UsersComponent implements OnInit {
 
     this.loadUsers();
 
-    this._modalUploadService.notofications
+    this._modalUploadService.notifications
         .subscribe( resp => this.loadUsers() );
 
   }
