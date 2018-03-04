@@ -144,7 +144,13 @@ export class UserService {
 
                 return true;
 
-               });
+               })
+               .catch ( err => {
+
+                swal(err.error.message , err.error.errors.message, 'error');
+                return Observable.throw( err );
+
+             });
   }
 
   changeImage ( file: File, id: string ) {
