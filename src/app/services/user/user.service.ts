@@ -2,9 +2,14 @@ import { Injectable } from '@angular/core';
 import { User } from '../../models/user.model';
 import { HttpClient } from '@angular/common/http';
 import { URL_SERVICES } from '../../config/config';
-
-import 'rxjs/add/operator/map';
 import { Router } from '@angular/router';
+
+// Rxjs
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import { Observable } from 'rxjs/Observable';
+
+// Services
 import { UploadFileService } from '../uploadfile/upload-file.service';
 
 @Injectable()
@@ -94,6 +99,13 @@ export class UserService {
 
                 this.saveStorage(resp.id, resp.token, resp.user, resp.menu);
                 return true;
+
+               })
+               .catch ( err => {
+
+                  console.log(err);
+                  swal('Error in the login', err.error.message, 'error');
+                  return Observable.throw( err );
 
                });
 
