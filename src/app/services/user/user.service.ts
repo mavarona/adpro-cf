@@ -121,7 +121,7 @@ export class UserService {
             })
             .catch ( err => {
 
-              swal(err.error.message , err.error.error.message, 'error');
+              swal(err.error.message , err.error.errors.message, 'error');
               return Observable.throw( err );
 
            });
