@@ -103,7 +103,6 @@ export class UserService {
                })
                .catch ( err => {
 
-                  console.log(err);
                   swal('Error in the login', err.error.message, 'error');
                   return Observable.throw( err );
 
@@ -119,7 +118,13 @@ export class UserService {
             .map( (resp: any) => {
               swal('User Create: ', user.email, 'success');
               return resp.user;
-            });
+            })
+            .catch ( err => {
+
+              swal(err.error.message , err.error.error.message, 'error');
+              return Observable.throw( err );
+
+           });
 
   }
 
