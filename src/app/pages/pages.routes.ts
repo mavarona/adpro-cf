@@ -20,10 +20,6 @@ import { LoginGuardGuard } from '../services/guards/login-guard.guard';
 import { AdminGuard } from '../services/guards/admin.guard';
 
 const pagesRoutes: Routes = [
-  { path: '',
-    component: PagesComponent,
-    canActivate: [ LoginGuardGuard ],
-    children: [
       { path: 'account-settings', component: AccountSettingsComponent, data: { title: 'settings themes' }},
       { path: 'dashboard', component: DashboardComponent, data: { title: 'Dashboard' }},
       { path: 'graphs1', component: Graphs1Component, data: { title: 'Graphs' }},
@@ -42,8 +38,6 @@ const pagesRoutes: Routes = [
         data: { title: 'Admin users' }
       },
       { path: '', redirectTo: '/dashboard', pathMatch: 'full'}
-    ]
-  },
 ];
 
 export const PAGES_ROUTES = RouterModule.forChild( pagesRoutes );

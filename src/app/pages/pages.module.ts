@@ -18,8 +18,6 @@ import { GraphDonaComponent } from '../components/graph-dona/graph-dona.componen
 import { Graphs1Component } from './graphs1/graphs1.component';
 import { HospitalsComponent } from './hospitals/hospitals.component';
 import { IncrementComponent } from '../components/increment/increment.component';
-import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
-import { PagesComponent } from './pages.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProgressComponent } from './progress/progress.component';
 import { PromisesComponent } from './promises/promises.component';
@@ -40,8 +38,6 @@ import { PAGES_ROUTES } from './pages.routes';
     Graphs1Component,
     HospitalsComponent,
     IncrementComponent,
-    ModalUploadComponent,
-    PagesComponent,
     ProfileComponent,
     ProgressComponent,
     PromisesComponent,
@@ -60,7 +56,6 @@ import { PAGES_ROUTES } from './pages.routes';
   exports: [
     DashboardComponent,
     Graphs1Component,
-    PagesComponent,
     ProgressComponent
   ]
 })
