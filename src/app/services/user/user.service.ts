@@ -206,7 +206,7 @@ export class UserService {
 
     url += '?token=' + this.token;
 
-    this._http.get( url )
+    return this._http.get( url )
         .map( (resp: any) => {
 
           this.token = resp.token;

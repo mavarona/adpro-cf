@@ -18,10 +18,15 @@ import { UsersComponent } from './users/users.component';
 // Services
 import { LoginGuardGuard } from '../services/guards/login-guard.guard';
 import { AdminGuard } from '../services/guards/admin.guard';
+import { VerifyTokenGuard } from '../services/guards/verify-token.guard';
 
 const pagesRoutes: Routes = [
       { path: 'account-settings', component: AccountSettingsComponent, data: { title: 'settings themes' }},
-      { path: 'dashboard', component: DashboardComponent, data: { title: 'Dashboard' }},
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+        canActivate: [ VerifyTokenGuard ],
+        data: { title: 'Dashboard' }},
       { path: 'graphs1', component: Graphs1Component, data: { title: 'Graphs' }},
       { path: 'profile', component: ProfileComponent, data: { title: 'Profile' }},
       { path: 'progress', component: ProgressComponent, data: { title: 'Progress' }},
